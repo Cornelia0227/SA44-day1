@@ -1,0 +1,10 @@
+<h1><code>Uno Cards</code></h1>
+<table>
+  <tr *ngFor="let i of cardList">
+    <td>
+      <img [src]="i.imageUrl" [alt]="i.name"/>
+    </td>
+    <td>{{i.name}}</td>
+  </tr>
+</table>
+

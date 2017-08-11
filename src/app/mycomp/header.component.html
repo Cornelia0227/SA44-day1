@@ -1,10 +1,9 @@
-<h1><code>Uno Cards</code></h1>
-<table>
-  <tr *ngFor="let i of cardList">
-    <td>
-      <img [src]="i.imageUrl" [alt]="i.name"/>
-    </td>
-    <td>{{i.name}}</td>
-  </tr>
-</table>
+<button type="button" (click)="Start()">Start</button>
 
+<table>
+    <td *ngFor="let i of playerCards">
+      <tr>
+        <img [src]="i.imageUrl" [alt]="i.name" />
+      </tr>
+    </td>
+</table>

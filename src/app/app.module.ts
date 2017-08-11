@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './mycomp/header.component';
+import { PlayComponent } from './mycomp/play/play.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule

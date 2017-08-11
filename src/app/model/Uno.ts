@@ -4,11 +4,17 @@ export interface Card {
     imageUrl: string
 };
 
+
+export interface Player {
+    index: number;
+    cards:Card[]
+}
+
 export class UnoDeck {
 
     private static COLOR: string[] = ["red", "green", "blue", "yellow"];
     private cards: Card[] = [];
-    
+
     constructor() {
         //create the deck
         for (let c = 0; c < UnoDeck.COLOR.length; c++) {

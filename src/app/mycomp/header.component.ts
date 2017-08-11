@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Card, UnoDeck } from '../model/Uno';
+import { Card, UnoDeck, Player } from '../model/Uno';
 
 @Component({
   selector: 'app-header',
@@ -11,16 +11,54 @@ export class HeaderComponent implements OnInit {
 
 
   @Input() playerCards: Card[];
-  @Input() playerNo: number;
-  deck: UnoDeck = new UnoDeck();
+  playerNum: number;
+  playerList: Player[] = [];
+
+  deck: UnoDeck;
 
   constructor() { }
 
-  ngOnInit() {
+ngOnInit() {
+    this.playerNum = 2;
+    
   }
 
-  public Start(): void {
-      for (let i = 0; i < 7*7; i++)
-        this.playerCards[i] = this.deck.take();
+
+
+  public AddPlayers(): void {
+
+    if (this.playerNum < 7) {
+      this.playerNum++;
+    }
   }
+
+
+
+  public RemovePlayers(): void {
+
+    if (this.playerNum > 2) {
+      this.playerNum--;
+    }
+  }
+
+ public Start(): void {
+   this.playerList=[];
+   this.deck = new UnoDeck();
+
+    for (let n = 0; n < this.playerNum; n++) {
+      let cards=[];
+      for (let i = 0; i < 7; i++){
+
+        cards[i] = this.deck.take();
+      }
+      this.playerList.push({
+
+        index:n+1,
+
+        cards:cards
+
+      });
+    }
+  }
+
 }
